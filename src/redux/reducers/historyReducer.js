@@ -7,10 +7,17 @@ const initialState = {
 export const historyReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TO_HISTORY:
-            return {
-                ...state,
-                history: [...state.history, action.payload]
-            };
+            if (!state.history.includes(action.payload)) {
+                return {
+                    ...state,
+                    history: [...state.history, action.payload]
+                };
+            } else {
+                return {
+                    ...state,
+                    history: state.history.filter((blog) => blog !== action.payload)
+                };
+            }
         default:
             return state;
     }

@@ -1,8 +1,8 @@
 import { ADD_TO_HISTORY } from "../actionTypes/actionTypes"
 
-export const addToHistory = (history) => {
+export const addToHistory = (blog) => {
     return {
         type: ADD_TO_HISTORY,
-        payload: history
+        payload: blog
     }
 }

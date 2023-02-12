@@ -4,7 +4,7 @@ import { tagReducer } from './tagReducer';
 
 const rootReducer = combineReducers({
     history: historyReducer,
-    tag: tagReducer
+    filter: tagReducer
 });
 
 export default rootReducer;
