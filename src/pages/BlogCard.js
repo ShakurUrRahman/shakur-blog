@@ -23,7 +23,7 @@ const ProductCard = ({ blog }) => {
                     </button></Link>
                 )}
             </div>
-
+            <p>{blog.tag}</p>
         </div>
     );
 };

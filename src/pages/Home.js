@@ -27,7 +27,7 @@ const Home = () => {
         ))
     }
 
-    if (blogs.length || tags.length) {
+    if (blogs.length && tags.length) {
         content = blogs
             .filter((blog) => {
                 if (tags.length) {
@@ -47,16 +47,22 @@ const Home = () => {
             </div>
             <div className=' flex justify-end gap-5'>
                 <button
-                    onClick={() => dispatch(toggleTags("amd"))}
-                    className={`border px-3 py-2 rounded-full font-semibold ${tags.includes("amd") ? activeClass : "null"}`}
+                    onClick={() => dispatch(toggleTags("life"))}
+                    className={`border px-3 py-2 rounded-full font-semibold ${tags.includes("life") ? activeClass : "null"}`}
                 >
-                    AMD
+                    Life
                 </button>
                 <button
-                    onClick={() => dispatch(toggleTags("intel"))}
-                    className={`border px-3 py-2 rounded-full font-semibold ${tags.includes("intel") ? activeClass : "null"}`}
+                    onClick={() => dispatch(toggleTags("nature"))}
+                    className={`border px-3 py-2 rounded-full font-semibold ${tags.includes("nature") ? activeClass : "null"}`}
                 >
-                    Intel
+                    Nature
+                </button>
+                <button
+                    onClick={() => dispatch(toggleTags("dev"))}
+                    className={`border px-3 py-2 rounded-full font-semibold ${tags.includes("dev") ? activeClass : "null"}`}
+                >
+                    Dev
                 </button>
             </div>
         </div>
