@@ -1,10 +1,13 @@
-import { ADD_BLOG, ADD_TO_HISTORY, DELETE_BLOG, LOAD_BLOG, REMOVE_BLOG } from "../actionTypes/actionTypes";
+import { ADD_BLOG, ADD_TO_HISTORY, DELETE_BLOG, LOAD_BLOG } from "../actionTypes/actionTypes";
 
 const initialState = {
     blogs: [],
+    history: []
 };
 
 export const blogReducer = (state = initialState, action) => {
+    const selectedBlog = state.blogs.find((blog) => blog._id === action.payload._id);
+    // console.log("r", selectedBlog);
     switch (action.type) {
         case LOAD_BLOG:
             return {
@@ -22,17 +25,19 @@ export const blogReducer = (state = initialState, action) => {
                 blogs: state.blogs.filter((blog) => blog._id !== action.payload)
             };
         case ADD_TO_HISTORY:
-            if (!state.blogs.includes(action.payload)) {
+            if (selectedBlog) {
+                const newCart = state.history.filter(
+                    (product) => product._id !== selectedBlog._id
+                );
                 return {
                     ...state,
-                    blogs: [...state.blogs, action.payload]
-                };
-            } else {
-                return {
-                    ...state,
-                    blogs: state.blogs.filter((blog) => blog !== action.payload)
+                    history: [...newCart, selectedBlog]
                 };
             }
+            return {
+                ...state,
+                history: [...state.history, selectedBlog]
+            };
         default:
             return state;
     }

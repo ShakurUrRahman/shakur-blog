@@ -3,8 +3,8 @@ import { ADD_TO_HISTORY } from "../actionTypes/actionTypes";
 const historyCounter = (store) => (next) => (action) => {
     const state = store.getState();
 
-    const blogs = state.blogs;
-    // console.log(blogs);
+    const blogs = state.blogs.history;
+    console.log(blogs);
 
     if (action.type === ADD_TO_HISTORY) {
         const newAction = {

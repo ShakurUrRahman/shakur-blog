@@ -7,7 +7,7 @@ import logger from 'redux-logger';
 
 const store = createStore(
     rootReducer,
-    composeWithDevTools(applyMiddleware(historyCounter, thunk, logger))
+    composeWithDevTools(applyMiddleware(historyCounter, thunk))
 );
 
 export default store;
