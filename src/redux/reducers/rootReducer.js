@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { historyReducer } from './historyReducer';
+import { blogReducer } from './blogReducer';
 import { tagReducer } from './tagReducer';
 
 const rootReducer = combineReducers({
-    history: historyReducer,
+    blogs: blogReducer,
     filter: tagReducer
 });
 

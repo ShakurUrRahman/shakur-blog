@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import deleteBlogData from "../redux/thunk/blogs/deleteBlogData";
+import loadBlogData from "../redux/thunk/blogs/fetchBlogs";
 
 const BlogList = () => {
-    // const products = useSelector((state) => state.product.products);
-    // const dispatch = useDispatch();
-
-    const [blogs, setBlogs] = useState([]);
+    const blogs = useSelector((state) => state.blogs.blogs);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        fetch("http://localhost:5000/")
-            .then(res => res.json())
-            .then(data => setBlogs(data.data))
-    }, [])
+        dispatch(loadBlogData())
+    }, [dispatch])
 
     return (
         <div className='flex flex-col justify-center items-center h-full w-full '>
@@ -43,7 +42,7 @@ const BlogList = () => {
                         </thead>
 
                         <tbody className='text-sm divide-y divide-gray-100'>
-                            {blogs.map(({ title, details }, i) => (
+                            {blogs.map(({ title, details, _id }, i) => (
                                 <tr key={i}>
                                     <td className='p-2'>
                                         <input type='checkbox' className='w-5 h-5' value='id-1' />
@@ -54,25 +53,11 @@ const BlogList = () => {
                                     <td className='p-2'>
                                         <div className='text-left capitalize'>{details}</div>
                                     </td>
-                                    {/* <td className='p-2'>
-                                        <div className='text-left'>
-                                            {status ? (
-                                                <p className='text-green-500 font-medium'>Available</p>
-                                            ) : (
-                                                <p className='text-red-500 font-medium'>Stock out</p>
-                                            )}
-                                        </div>
-                                    </td> */}
-                                    {/* <td className='p-2'>
-                                        <div className='text-left font-medium text-indigo-500'>
-                                            {price}
-                                        </div>
-                                    </td> */}
-                                    {/* <td className='p-2'>
-                                        <div className='flex justify-center'>
-                                            <button>
+                                    <td class='p-2'>
+                                        <div class='flex justify-center'>
+                                            <button onClick={() => dispatch(deleteBlogData(_id))}>
                                                 <svg
-                                                    className='w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1'
+                                                    class='w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1'
                                                     fill='none'
                                                     stroke='currentColor'
                                                     viewBox='0 0 24 24'
@@ -87,7 +72,7 @@ const BlogList = () => {
                                                 </svg>
                                             </button>
                                         </div>
-                                    </td> */}
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>

@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { loadBlog } from '../redux/actionCreators/blogActions';
 import { toggleTags } from '../redux/actionCreators/tagAction';
+import loadBlogData from '../redux/thunk/blogs/fetchBlogs';
 import BlogCard from './BlogCard'
 
 const Home = () => {
     const dispatch = useDispatch();
-    const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/")
-            .then(res => res.json())
-            .then(data => setBlogs(data.data))
-    }, [])
+        dispatch(loadBlogData())
+    }, [dispatch])
 
     const filters = useSelector((state) => state.filter.filters);
+    const blogs = useSelector((state) => state.blogs.blogs);
+    console.log(blogs);
     const { tags } = filters;
 
 
