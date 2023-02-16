@@ -1,32 +1,46 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { BsFillCartFill } from "react-icons/bs";
 import { IoIosListBox } from "react-icons/io";
+import logo from "../../../src/assets/logo.png"
+import './Navbar.css'
 
 const Navbar = () => {
     return (
-        <nav className='h-14 bg-indigo-200 rounded-full m-2 max-w-7xl mx-auto px-5'>
-            <ul className='h-full  mx-auto flex justify-between items-center gap-3 font-semibold text-indigo-900'>
-                <h1 className='flex-1'>Moon Tech</h1>
-                <li>
-                    <Link to='/'>Home</Link>
-                </li>
-                <li>
-                    <Link to='/top-rated'>Top Rated</Link>
-                </li>
-                <li>
-                    <Link to='/about'>About</Link>
-                </li>
-                <li title='Wishlist' className='bg-indigo-500 p-2 rounded-full'>
-                    <Link to='/'>
-                        <IoIosListBox className='text-white' />
-                    </Link>
-                </li>
-                <li title='history' className='bg-indigo-500 p-2 rounded-full'>
-                    <Link to='/history'>
-                        <BsFillCartFill className='text-white ' />
-                    </Link>
-                </li>
+        <nav className='h-24 bg-white rounded-full mt-14 max-w-5xl mx-auto px-5'>
+            <ul className='h-full lg:mx-6 flex justify-between items-center gap-3 font-semibold text-indigo-900'>
+                <div className='mt-2'>
+                    <img className="lg:h-20 h-20 w-max" src={logo} alt="" srcset="" />
+                </div>
+                <div className="flex gap-3">
+                    <li>
+                        <Link to='/'>Home</Link>
+                    </li>
+                    <li>
+                        <Link to='/history'>History</Link>
+                    </li>
+                    <div className="fistClass">
+                        <li className="">
+                            #Tag
+                            <ul className="">
+                                <li>Life</li>
+                                <li>Nature</li>
+                                <li>Tech</li>
+                                <li>History</li>
+                            </ul>
+                        </li>
+                    </div>
+                    <li title='Wishlist' className='bg-indigo-500 p-2 rounded-full'>
+                        <Link to='/'>
+                            <IoIosListBox className='text-white' />
+                        </Link>
+                    </li>
+                    <li title='history' className='bg-indigo-500 p-2 rounded-full'>
+                        <Link to='/history'>
+                            <BsFillCartFill className='text-white ' />
+                        </Link>
+                    </li>
+                </div>
             </ul>
         </nav>
     );
