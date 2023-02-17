@@ -1,8 +1,13 @@
-.fistClass>li>ul {
-    display: none;
+.fistClass>li:hover {
+    font-style: italic;
+    color: blueviolet;
 }
 
-.fistClass>li:hover>ul {
+.secondClass>div:hover>ul {
     display: block;
+}
+
+.secondClass>div>ul {
+    display: none;
     position: absolute;
 }

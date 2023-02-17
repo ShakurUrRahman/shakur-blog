@@ -17,7 +17,7 @@ const Home = () => {
     const { tags } = filters;
 
 
-    const activeClass = "text-white bg-indigo-500 border-white";
+    const activeClass = "text-black bg-[#FF77E2] border-white";
 
     let content;
 
@@ -41,26 +41,26 @@ const Home = () => {
     }
 
     return (
-        <div className='max-w-7xl gap-14 mx-auto my-5 flex flex-col-reverse'>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14'>
+        <div className='gap-14 my-5 flex flex-col mx-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 mx-auto'>
                 {content}
             </div>
-            <div className=' flex justify-end gap-5'>
+            <div className='flex justify-center gap-5'>
                 <button
                     onClick={() => dispatch(toggleTags("life"))}
-                    className={`border px-3 py-2 rounded-full font-semibold ${tags.includes("life") ? activeClass : "null"}`}
+                    className={`border border-x-8 px-3 py-2 rounded-tr-xl font-semibold ${tags.includes("life") ? activeClass : "null"}`}
                 >
                     Life
                 </button>
                 <button
                     onClick={() => dispatch(toggleTags("nature"))}
-                    className={`border px-3 py-2 rounded-full font-semibold ${tags.includes("nature") ? activeClass : "null"}`}
+                    className={`border px-3 py-2 rounded-t-2xl border-x-8 font-semibold ${tags.includes("nature") ? activeClass : "null"}`}
                 >
                     Nature
                 </button>
                 <button
                     onClick={() => dispatch(toggleTags("dev"))}
-                    className={`border px-3 py-2 rounded-full font-semibold ${tags.includes("dev") ? activeClass : "null"}`}
+                    className={`border border-x-8 px-3 py-2 rounded-tl-xl font-semibold ${tags.includes("dev") ? activeClass : "null"}`}
                 >
                     Dev
                 </button>
