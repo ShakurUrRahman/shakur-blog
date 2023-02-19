@@ -37,7 +37,7 @@ const Home = () => {
                 {content}
             </div>
             <div className='flex items-center gap-2 mx-auto text-lg font-extrabold'>
-                <p>You selected tag(s):</p>
+                <p>Your selected tag(s):</p>
                 {tags.length ?
                     tags?.map(tag =>
                         <div className='flex justify-start items-start gap-5'>

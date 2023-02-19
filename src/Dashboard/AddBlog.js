@@ -1,9 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { addBlog } from "../redux/actionCreators/blogActions";
 import addBlogData from "../redux/thunk/blogs/addBlogData";
-import addPBlogData from "../redux/thunk/blogs/addBlogData";
 
 const AddBlog = () => {
     const { register, handleSubmit } = useForm();
@@ -11,8 +9,8 @@ const AddBlog = () => {
 
     const submit = (data) => {
         const blog = {
-            model: data.model,
-            brand: data.brand,
+            title: data.tile,
+            date: new Date(),
             status: data.status === "true" ? true : false,
             price: data.price,
             keyFeature: [
@@ -28,16 +26,16 @@ const AddBlog = () => {
     };
 
     return (
-        <div className='flex justify-center items-center h-full '>
+        <div className='flex justify-center items-center h-full mt-10'>
             <form
-                className='shadow-lg p-10 rounded-md flex flex-wrap gap-3 max-w-3xl justify-between bg-white'
+                className='p-10 rounded-md flex flex-wrap gap-3 max-w-3xl justify-between bg-lime-400'
                 onSubmit={handleSubmit(submit)}
             >
                 <div className='flex flex-col w-full max-w-xs'>
-                    <label className='mb-2' htmlFor='model'>
+                    <label className='mb-2' htmlFor='title'>
                         Blog Title
                     </label>
-                    <input type='text' id='title' {...register("model")} />
+                    <input type='text' id='title' {...register("title")} />
                 </div>
                 <div className='flex flex-col w-full max-w-xs'>
                     <label className='mb-2' htmlFor='image'>

@@ -2,11 +2,20 @@
     font-style: italic;
 }
 
-.secondClass>div:hover>ul {
-    display: block;
-}
-
 .secondClass>div>ul {
     display: none;
+}
+
+.secondClass>div:hover>ul {
+    display: block;
     position: absolute;
+
+}
+
+.secondClass>div>ul>li {
+    background-color: #54CBCA;
+    padding: 5px;
+    border: 1px solid black;
+    margin-top: 3px;
+    margin-left: 5px;
 }
