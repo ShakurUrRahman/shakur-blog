@@ -4,7 +4,7 @@ const historyCounter = (store) => (next) => (action) => {
     const state = store.getState();
 
     const blogs = state.blogs.history;
-    console.log(blogs);
+    // console.log(blogs);
 
     if (action.type === ADD_TO_HISTORY) {
         const newAction = {

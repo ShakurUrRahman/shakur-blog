@@ -1,8 +1,9 @@
 export const ADD_TO_HISTORY = "ADD_TO_HISTORY";
-export const LOAD_BLOG = "LOAD_BLOG";
-export const ADD_BLOG = "ADD_BLOG";
-export const DELETE_BLOG = "DELETE_BLOG";
+export const GET_CONTENT = "GET_CONTENT";
+export const ADD_CONTENT = "ADD_CONTENT";
+export const DELETE_CONTENT = "DELETE_CONTENT";
 
 // for filters
 
 export const TOGGLE_TAGS = "TOGGLE_TAGS";
+export const SEND_FILTER = "SEND_FILTER";

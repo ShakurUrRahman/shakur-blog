@@ -1,8 +1,8 @@
-import { TOGGLE_TAGS } from "../actionTypes/actionTypes"
+import { SEND_FILTER, TOGGLE_TAGS } from "../actionTypes/actionTypes"
 
-export const toggleTags = (tagName) => {
+export const toggleTags = (data) => {
     return {
         type: TOGGLE_TAGS,
-        payload: tagName
+        payload: data
     }
 }

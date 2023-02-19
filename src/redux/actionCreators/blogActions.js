@@ -1,21 +1,21 @@
-import { ADD_BLOG, ADD_TO_HISTORY, DELETE_BLOG, LOAD_BLOG, REMOVE_BLOG } from "../actionTypes/actionTypes"
+import { ADD_CONTENT, ADD_TO_HISTORY, DELETE_CONTENT, GET_CONTENT } from "../actionTypes/actionTypes"
 
 export const loadBlog = (data) => {
     return {
-        type: LOAD_BLOG,
+        type: GET_CONTENT,
         payload: data
     };
 }
 
 export const addBlog = (data) => {
     return {
-        type: ADD_BLOG,
+        type: ADD_CONTENT,
         payload: data
     };
 }
 export const deleteBlog = (id) => {
     return {
-        type: DELETE_BLOG,
+        type: DELETE_CONTENT,
         payload: id
     };
 }

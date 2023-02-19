@@ -6,9 +6,37 @@ const History = () => {
     console.log(blogs);
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-7xl gap-14 mx-auto my-10'>
-            {blogs?.sort((a, b) => a.historyPosition - b.historyPosition).map(blog => <p key={blog._id}>{blog.title}</p>)}
+        <div className="mx-auto sm:rounded-lg mt-10 ">
+            <table className="mx-auto text-lg bg-lime-400">
+                <thead className="text-sm uppercase">
+                    <tr>
+                        <th scope="col" className="px-6 py-3">
+                            Blog Image
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                            Blog Name
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                            Category Name
+                        </th>
+                    </tr>
+                </thead>
+                <tbody className="">
+                    {blogs?.sort((a, b) => b.historyPosition - a.historyPosition).map(blog => <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" className="px-6 py-4 whitespace-nowrap bg-lime-200">
+                            <img className="h-16 w-16" src={blog.thumbPic} alt="" srcset="" />
+                        </th>
+                        <td className="px-6 py-4 bg-lime-200">
+                            {blog.title}
+                        </td>
+                        <td className="px-6 py-4 uppercase  bg-lime-200">
+                            {blog.tag.map(t => <p>{t}</p>)}
+                        </td>
+                    </tr>)}
+                </tbody>
+            </table>
         </div>
+
     );
 };
 

@@ -1,30 +1,23 @@
 import { TOGGLE_TAGS } from "../actionTypes/actionTypes";
 
 export const initialState = {
-    filters: {
-        tags: [],
-        all: false
-    }
+    tags: [],
+    all: false
 };
 
 export const tagReducer = (state = initialState, action) => {
     switch (action.type) {
         case TOGGLE_TAGS:
-            if (!state.filters.tags.includes(action.payload)) {
+            if (state.tags.includes(action.payload)) {
                 return {
                     ...state,
-                    filters: {
-                        ...state.filter,
-                        tags: [...state.filters.tags, action.payload]
-                    }
+                    tags: state.tags.filter((tag) => tag !== action.payload)
+
                 }
             } else {
                 return {
                     ...state,
-                    filters: {
-                        ...state.filters,
-                        tags: state.filters.tags.filter((tag) => tag !== action.payload)
-                    },
+                    tags: [...state.tags, action.payload]
                 }
             }
         default:

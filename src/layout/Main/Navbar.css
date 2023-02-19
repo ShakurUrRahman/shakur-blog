@@ -1,6 +1,5 @@
 .fistClass>li:hover {
     font-style: italic;
-    color: blueviolet;
 }
 
 .secondClass>div:hover>ul {
