@@ -32,7 +32,7 @@ const Home = () => {
 
 
     return (
-        <div className='gap-14 my-5 flex flex-col mx-auto'>
+        <div className='gap-14 my-5 flex flex-col mx-auto mt-10'>
             <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 mx-auto'>
                 {content}
             </div>
@@ -48,7 +48,7 @@ const Home = () => {
                                 {tag}
                             </button>
                         </div>)
-                    : <p>You did not select any tag</p>
+                    : <p>You did not select any tag.</p>
                 }
             </div>
         </div>

@@ -20,18 +20,18 @@ const ProductCard = ({ blog }) => {
                     <p className="text-sm underline">Posted on: <span className="italic">{blog.date}</span></p>
                 </div>
                 <p class="mb-3 font-normal">{blog.body.slice(0, 200)}...</p>
-                <div className="flex gap-44 items-start ">
+                <div className="flex gap-44 items-start">
                     {!pathname.includes("history") && (
                         <Link to={`/blogdetails/${blog._id}`}> <button
                             onClick={() => dispatch(addToHistory(blog))}
-                            className='text-gray-900 font-medium border-2 hover:bg-green-400  rounded-br-3xl border-black border-b-8 text-md hover:font-bold px-5 py-2.5 text-center mr-2 mb-2 w-52'
+                            className='text-gray-900 font-medium border-2 hover:bg-green-400  rounded-xl border-black border-b-8 text-md hover:font-bold hover:rounded-3xl px-5 py-2.5 text-center mr-2 mb-2 w-52'
                         >Read Full Blog
                         </button></Link>
                     )}
                     <p className="">
                         {
                             blog?.tag.map(t => t.length > 0 && <button onClick={() => dispatch(toggleTags(t)
-                            )} className={`font-serif rounded-full py-1 px-1 border-2 border-dotted border-black mr-1 ${tags.includes(t) ? activeClass : null}`}>
+                            )} className={`font-serif rounded-full py-1 px-1 border-2 border-dotted hover:border-solid border-black mr-1 ${tags.includes(t) ? activeClass : null}`}>
                                 #{t}
                             </button>)
                         }

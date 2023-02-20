@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteBlog } from "../redux/actionCreators/blogActions";
 import deleteBlogData from "../redux/thunk/blogs/deleteBlogData";
 import loadBlogData from "../redux/thunk/blogs/fetchBlogs";
 
@@ -13,7 +12,7 @@ const BlogList = () => {
     }, [dispatch])
 
     return (
-        <div className="mx-auto sm:rounded-lg mt-10 ">
+        <div className="mx-auto sm:rounded-lg my-10 ">
             <table className="mx-auto text-lg ">
                 <thead className="text-sm uppercase bg-lime-400">
                     <tr>
