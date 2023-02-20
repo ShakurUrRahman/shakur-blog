@@ -1,4 +1,4 @@
-import { ADD_CONTENT, ADD_TO_HISTORY, DELETE_CONTENT, GET_CONTENT, SEND_FILTER } from "../actionTypes/actionTypes";
+import { ADD_CONTENT, ADD_TO_HISTORY, DELETE_CONTENT, GET_CONTENT } from "../actionTypes/actionTypes";
 
 const initialState = {
     blogs: [],
@@ -7,7 +7,6 @@ const initialState = {
 
 export const blogReducer = (state = initialState, action) => {
     const selectedBlog = state.blogs.find((blog) => blog._id === action.payload._id);
-    // console.log("r", selectedBlog);
     switch (action.type) {
         case GET_CONTENT:
             return {
@@ -38,15 +37,6 @@ export const blogReducer = (state = initialState, action) => {
                 ...state,
                 history: [...state.history, selectedBlog]
             };
-        // case SEND_FILTER:
-        //     const blogList = state.blogs;
-        //     const { t } = action.payload;
-        //     let x = [];
-        //     x = blogList.tag.filter(blog => console.log(blog))
-
-        //     return {
-        //         ...state
-        //     }
         default:
             return state;
     }

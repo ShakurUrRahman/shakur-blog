@@ -2,7 +2,6 @@ import { TOGGLE_TAGS } from "../actionTypes/actionTypes";
 
 export const initialState = {
     tags: [],
-    all: false
 };
 
 export const tagReducer = (state = initialState, action) => {

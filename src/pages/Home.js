@@ -15,7 +15,7 @@ const Home = () => {
     const tags = useSelector((state) => state.filter.tags);
     console.log(tags);
 
-    const activeClass = "text-black bg-[#FF77E2] border-white";
+    const activeClass = "text-black bg-[#FF77E2] border-white uppercase";
 
     let content;
     if (tags.length) {

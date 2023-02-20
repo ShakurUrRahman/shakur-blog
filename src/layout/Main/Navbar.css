@@ -14,8 +14,12 @@
 
 .secondClass>div>ul>li {
     background-color: #54CBCA;
-    padding: 5px;
+    padding: 15px;
     border: 1px solid black;
     margin-top: 3px;
     margin-left: 5px;
+}
+
+.secondClass>div>ul>li:hover {
+    background-color: aquamarine;
 }
