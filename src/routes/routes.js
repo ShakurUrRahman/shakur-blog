@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddBlog from "../Dashboard/AddBlog";
 import BlogList from "../Dashboard/BlogList";
+import UpdateBlog from "../Dashboard/UpdateBlog";
 import Dashboard from "../layout/Dashboard/Dashboard";
 import Main from "../layout/Main/Main";
 import BlogDetails from "../pages/BlogDetails";
@@ -22,8 +23,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/blogdetails/:id',
-                element: <BlogDetails></BlogDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/blogdetails/${params.id}`)
+                element: <BlogDetails></BlogDetails>
             },
         ],
     },
@@ -38,6 +38,10 @@ const routes = createBrowserRouter([
             {
                 path: "/dashboard/addblog",
                 element: <AddBlog />,
+            },
+            {
+                path: "/dashboard/updateblog/:id",
+                element: <UpdateBlog />,
             }
         ],
     },

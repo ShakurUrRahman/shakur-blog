@@ -1,4 +1,4 @@
-import { ADD_CONTENT, ADD_TO_HISTORY, DELETE_CONTENT, GET_CONTENT } from "../actionTypes/actionTypes"
+import { ADD_CONTENT, ADD_TO_HISTORY, DELETE_CONTENT, GET_CONTENT, UPDATE_CONTENT } from "../actionTypes/actionTypes"
 
 export const loadBlog = (data) => {
     return {
@@ -16,6 +16,13 @@ export const addBlog = (data) => {
 export const deleteBlog = (id) => {
     return {
         type: DELETE_CONTENT,
+        payload: id
+    };
+}
+
+export const updatedBlog = (id) => {
+    return {
+        type: UPDATE_CONTENT,
         payload: id
     };
 }

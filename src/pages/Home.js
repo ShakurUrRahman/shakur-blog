@@ -13,7 +13,7 @@ const Home = () => {
 
     const blogs = useSelector((state) => state.blogs.blogs);
     const tags = useSelector((state) => state.filter.tags);
-    console.log(tags);
+    console.log(blogs);
 
     const activeClass = "text-black bg-[#FF77E2] border-white uppercase";
 
@@ -43,7 +43,7 @@ const Home = () => {
                         <div className='flex justify-start items-start gap-5'>
                             <button
                                 onClick={() => dispatch(toggleTags(tag))}
-                                className={`border border-x-8 px-3 py-2 rounded-tr-xl font-semibold ${tags.includes(tag) ? activeClass : null}`}
+                                className={`border border-x-8 px-3 rounded-tr-xl font-semibold ${tags.includes(tag) ? activeClass : "null"}`}
                             >
                                 {tag}
                             </button>

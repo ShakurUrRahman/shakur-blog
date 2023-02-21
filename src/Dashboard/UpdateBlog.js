@@ -1,18 +1,25 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import addBlogData from "../redux/thunk/blogs/addBlogData";
+import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import loadBlogData from '../redux/thunk/blogs/fetchBlogs';
+import updateBlogData from '../redux/thunk/blogs/updateBlogData';
 
-const AddBlog = () => {
-    const { register, handleSubmit } = useForm();
+const UpdateBlog = () => {
+    const { handleSubmit, register } = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { id } = useParams();
 
-    const fieldColor = "bg-lime-400 text-xl mb-3 p-2";
+    const blogs = useSelector((state) => state.blogs.blogs);
+    const blog = blogs?.find((blog) => blog._id === id);
+    console.log(blogs);
+
+    useEffect(() => {
+        dispatch(loadBlogData())
+    }, [dispatch])
 
     const submit = (data) => {
-        // const postTime = new Date();
         const date = new Date().toLocaleString();
 
         const blog = {
@@ -27,9 +34,11 @@ const AddBlog = () => {
             ],
             body: data.body,
         };
-        console.log(blog);
-        dispatch(addBlogData(blog, navigate))
+        // console.log(blog);
+        dispatch(updateBlogData(blog, navigate))
     };
+
+    const fieldColor = "bg-lime-400 text-xl mb-3 p-2";
 
     return (
         <div className='mx-auto max-w-3xl my-10'>
@@ -41,13 +50,17 @@ const AddBlog = () => {
                     <label className='mb-2' htmlFor='title'>
                         Blog Title
                     </label>
-                    <input className={fieldColor} type='text' name='title' id='title' {...register("title")} />
+                    <input defaultValue={blog?.title} className={fieldColor} type='text' name='title' id='title' {...register("title")} />
                 </div>
                 <div className='flex flex-col w-full'>
                     <label className='mb-2' htmlFor='image'>
                         Image
                     </label>
-                    <input className={fieldColor} type='text' name='image' id='image' {...register("image")} />
+                    <input defaultValue={blog?.thumbPic} className={fieldColor} type='text'
+                        name='image'
+                        id='image'
+                        {...register("image")}
+                    />
                 </div>
 
                 <div className='flex gap-5'>
@@ -61,6 +74,7 @@ const AddBlog = () => {
                             id='tag1'
                             className={fieldColor}
                             {...register("tag1")}
+                            defaultValue={blog?.tag[0]}
                         />
                     </div>
                     <div className='flex flex-col w-1/2'>
@@ -73,6 +87,7 @@ const AddBlog = () => {
                             id='tag2'
                             className={fieldColor}
                             {...register("tag2")}
+                            defaultValue={blog?.tag[1]}
                         />
                     </div>
                 </div>
@@ -88,6 +103,7 @@ const AddBlog = () => {
                             id='tag3'
                             className={fieldColor}
                             {...register("tag3")}
+                            defaultValue={blog?.tag[2]}
                         />
                     </div>
                     <div className='flex flex-col w-1/2'>
@@ -100,6 +116,7 @@ const AddBlog = () => {
                             id='tag4'
                             className={fieldColor}
                             {...register("tag4")}
+                            defaultValue={blog?.tag[3]}
                         />
                     </div>
                 </div>
@@ -111,18 +128,19 @@ const AddBlog = () => {
                         type='body'
                         name='body'
                         id='body'
-                        maxLength={1800}
-                        rows="12"
+                        maxLength={2000}
+                        rows="10"
                         className={fieldColor}
                         {...register("body")}
+                        defaultValue={blog?.body}
                     />
                 </div>
                 <div className='flex justify-between items-center w-full'>
-                    <button type="submit" className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">Post your blog</button>
+                    <button type="submit" className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">Update your blog</button>
                 </div>
             </form>
         </div>
     );
 };
 
-export default AddBlog;
+export default UpdateBlog;

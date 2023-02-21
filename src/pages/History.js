@@ -24,7 +24,7 @@ const History = () => {
                 <tbody className="">
                     {blogs?.sort((a, b) => b.historyPosition - a.historyPosition).map(blog => <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" className="px-6 py-4 whitespace-nowrap bg-lime-200">
-                            <img className="h-16 w-16" src={blog.thumbPic} alt="" srcset="" />
+                            <img className="h-16 w-16" src={blog.thumbPic} alt="" srcSet="" />
                         </th>
                         <td className="px-6 py-4 bg-lime-200">
                             {blog.title}
