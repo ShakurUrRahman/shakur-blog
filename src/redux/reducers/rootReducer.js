@@ -4,7 +4,7 @@ import { tagReducer } from './tagReducer';
 
 const rootReducer = combineReducers({
     blogs: blogReducer,
-    filter: tagReducer
+    filters: tagReducer
 });
 
 export default rootReducer;

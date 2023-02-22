@@ -11,7 +11,6 @@ export const tagReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     tags: state.tags.filter((tag) => tag !== action.payload)
-
                 }
             } else {
                 return {

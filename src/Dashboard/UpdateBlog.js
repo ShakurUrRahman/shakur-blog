@@ -20,7 +20,7 @@ const UpdateBlog = () => {
     }, [dispatch])
 
     const submit = (data) => {
-        const date = new Date().toLocaleString();
+        const date = new Date().getDate();
 
         const blog = {
             thumbPic: data.image,
@@ -34,8 +34,8 @@ const UpdateBlog = () => {
             ],
             body: data.body,
         };
-        // console.log(blog);
-        dispatch(updateBlogData(blog, navigate))
+        console.log(blog);
+        dispatch(updateBlogData(id, blog, navigate))
     };
 
     const fieldColor = "bg-lime-400 text-xl mb-3 p-2";
@@ -50,13 +50,13 @@ const UpdateBlog = () => {
                     <label className='mb-2' htmlFor='title'>
                         Blog Title
                     </label>
-                    <input defaultValue={blog?.title} className={fieldColor} type='text' name='title' id='title' {...register("title")} />
+                    <input defaultValue={blog?.blog?.title} className={fieldColor} type='text' name='title' id='title' {...register("title")} />
                 </div>
                 <div className='flex flex-col w-full'>
                     <label className='mb-2' htmlFor='image'>
                         Image
                     </label>
-                    <input defaultValue={blog?.thumbPic} className={fieldColor} type='text'
+                    <input defaultValue={blog?.blog?.thumbPic} className={fieldColor} type='text'
                         name='image'
                         id='image'
                         {...register("image")}
@@ -74,7 +74,7 @@ const UpdateBlog = () => {
                             id='tag1'
                             className={fieldColor}
                             {...register("tag1")}
-                            defaultValue={blog?.tag[0]}
+                            defaultValue={blog?.blog?.tag[0]}
                         />
                     </div>
                     <div className='flex flex-col w-1/2'>
@@ -87,7 +87,7 @@ const UpdateBlog = () => {
                             id='tag2'
                             className={fieldColor}
                             {...register("tag2")}
-                            defaultValue={blog?.tag[1]}
+                            defaultValue={blog?.blog?.tag[1]}
                         />
                     </div>
                 </div>
@@ -103,7 +103,7 @@ const UpdateBlog = () => {
                             id='tag3'
                             className={fieldColor}
                             {...register("tag3")}
-                            defaultValue={blog?.tag[2]}
+                            defaultValue={blog?.blog?.tag[2]}
                         />
                     </div>
                     <div className='flex flex-col w-1/2'>
@@ -116,7 +116,7 @@ const UpdateBlog = () => {
                             id='tag4'
                             className={fieldColor}
                             {...register("tag4")}
-                            defaultValue={blog?.tag[3]}
+                            defaultValue={blog?.blog?.tag[3]}
                         />
                     </div>
                 </div>
@@ -132,7 +132,7 @@ const UpdateBlog = () => {
                         rows="10"
                         className={fieldColor}
                         {...register("body")}
-                        defaultValue={blog?.body}
+                        defaultValue={blog?.blog?.body}
                     />
                 </div>
                 <div className='flex justify-between items-center w-full'>

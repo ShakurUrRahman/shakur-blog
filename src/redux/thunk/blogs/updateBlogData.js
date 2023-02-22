@@ -2,6 +2,7 @@ import { updatedBlog } from "../../actionCreators/blogActions";
 
 
 const updateBlogData = (id, blog, navigate) => {
+
     return async (dispatch, getState) => {
         const res = await fetch(`http://localhost:5000/updateblog/${id}`, {
             method: "PUT",
@@ -12,6 +13,7 @@ const updateBlogData = (id, blog, navigate) => {
         });
         const data = await res.json();
         console.log(data);
+
         if (data.acknowledged && data.modifiedCount > 0) {
             dispatch(
                 updatedBlog({

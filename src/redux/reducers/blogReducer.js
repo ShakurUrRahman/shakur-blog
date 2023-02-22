@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export const blogReducer = (state = initialState, action) => {
-    console.log(state);
+    // console.log(state);
     const selectedBlog = state.blogs.find((blog) => blog._id === action.payload._id);
     switch (action.type) {
         case GET_CONTENT:

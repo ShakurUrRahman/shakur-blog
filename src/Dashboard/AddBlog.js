@@ -13,19 +13,21 @@ const AddBlog = () => {
 
     const submit = (data) => {
         // const postTime = new Date();
-        const date = new Date().toLocaleString();
+        const date = new Date().getTime();
 
         const blog = {
-            thumbPic: data.image,
-            title: data.title,
-            date,
-            tag: [
-                data.tag1,
-                data.tag2,
-                data.tag3,
-                data.tag4,
-            ],
-            body: data.body,
+            blog: {
+                thumbPic: data.image,
+                title: data.title,
+                date,
+                tag: [
+                    data.tag1,
+                    data.tag2,
+                    data.tag3,
+                    data.tag4,
+                ],
+                body: data.body,
+            }
         };
         console.log(blog);
         dispatch(addBlogData(blog, navigate))

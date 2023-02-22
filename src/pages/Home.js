@@ -5,30 +5,25 @@ import loadBlogData from '../redux/thunk/blogs/fetchBlogs';
 import BlogCard from './BlogCard'
 
 const Home = () => {
+    const blogs = useSelector((state) => state?.blogs?.blogs);
+    const tags = useSelector((state) => state?.blogs?.blogs);
     const dispatch = useDispatch();
-
+    // console.log(blogs);
     useEffect(() => {
         dispatch(loadBlogData())
     }, [dispatch])
 
-    const blogs = useSelector((state) => state.blogs.blogs);
-    const tags = useSelector((state) => state.filter.tags);
+
+
+    // const tags = useSelector((state) => state);
     console.log(blogs);
 
     const activeClass = "text-black bg-[#FF77E2] border-white uppercase";
 
     let content;
-    if (tags.length) {
-        content = tags.map((tag) =>
-            blogs.filter((blog) => blog.tag.includes(tag))
-        );
-        const addedTwoArray = content.reduce((a, b) => a.concat(b), []);
-        const result = [...new Set(addedTwoArray)];
-        content = result.map(blog => <BlogCard blog={blog}></BlogCard>)
 
-    } else {
-        content = blogs.map((blog) => <BlogCard key={blog._id} blog={blog}></BlogCard>);
-    }
+    content = blogs?.map((blog) => <BlogCard blog={blog}></BlogCard>);
+
 
 
     return (
