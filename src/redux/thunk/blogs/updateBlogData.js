@@ -12,7 +12,7 @@ const updateBlogData = (id, blog, navigate) => {
             },
         });
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
 
         if (data.acknowledged && data.modifiedCount > 0) {
             dispatch(

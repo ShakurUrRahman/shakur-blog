@@ -9,7 +9,7 @@ const deleteBlogData = (id) => {
             },
         });
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
         if (data.acknowledged && window.confirm("Are sure you want to delete?")) {
             dispatch(deleteBlog(id))
         }

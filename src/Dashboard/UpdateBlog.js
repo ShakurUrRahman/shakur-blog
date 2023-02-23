@@ -13,7 +13,7 @@ const UpdateBlog = () => {
 
     const blogs = useSelector((state) => state.blogs.blogs);
     const blog = blogs?.find((blog) => blog._id === id);
-    console.log(blogs);
+    console.log(blog);
 
     useEffect(() => {
         dispatch(loadBlogData())
@@ -34,7 +34,7 @@ const UpdateBlog = () => {
             ],
             body: data.body,
         };
-        console.log(blog);
+        // console.log(blog);
         dispatch(updateBlogData(id, blog, navigate))
     };
 

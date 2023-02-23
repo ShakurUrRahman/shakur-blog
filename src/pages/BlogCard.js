@@ -4,10 +4,11 @@ import { Link, useLocation } from "react-router-dom";
 import { addToHistory } from "../redux/actionCreators/blogActions";
 import { toggleTags } from "../redux/actionCreators/tagAction";
 
-const BlogCardCard = ({ blog }) => {
+const BlogCard = ({ blog }) => {
     const dispatch = useDispatch();
     const { pathname } = useLocation();
-    const tags = useSelector((state) => state.filter.tags);
+    const tags = useSelector((state) => state.filters.tags);
+    console.log(tags);
 
     const activeClass = "bg-gradient-to-r from-purple-500 to-pink-500 text-white";
     return (
@@ -21,8 +22,8 @@ const BlogCardCard = ({ blog }) => {
                 <p className="mb-3 font-normal">{blog?.blog?.body?.slice(0, 200)}...</p>
                 <div className="flex gap-44 items-start">
                     {!pathname.includes("history") && (
-                        <Link to={`/blogdetails/${blog?.blog?._id}`}> <button
-                            onClick={() => dispatch(addToHistory(blog?._id))}
+                        <Link to={`/blogdetails/${blog?._id}`}> <button
+                            onClick={() => dispatch(addToHistory(blog))}
                             className='text-gray-900 font-medium border-2 bg-green-300 hover:bg-green-500  rounded-xl border-black border-b-8 text-md hover:font-bold hover:rounded-3xl px-5 py-2.5 text-center mr-2 mb-2 w-52'
                         >Read Full Blog
                         </button></Link>
@@ -42,4 +43,4 @@ const BlogCardCard = ({ blog }) => {
     );
 };
 
-export default BlogCardCard;
+export default BlogCard;

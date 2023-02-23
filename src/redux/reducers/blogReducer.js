@@ -7,7 +7,7 @@ const initialState = {
 
 export const blogReducer = (state = initialState, action) => {
     // console.log(state);
-    const selectedBlog = state.blogs.find((blog) => blog._id === action.payload._id);
+    // const selectedBlog = state.blogs.find((blog) => blog._id === action.payload._id);
     switch (action.type) {
         case GET_CONTENT:
             return {
@@ -30,18 +30,12 @@ export const blogReducer = (state = initialState, action) => {
                 blogs: state.blogs.filter((blog) => blog._id !== action.payload)
             };
         case ADD_TO_HISTORY:
-            if (selectedBlog) {
-                const newHistory = state.history.filter(
-                    (product) => product._id !== selectedBlog._id
-                );
-                return {
-                    ...state,
-                    history: [...newHistory, selectedBlog]
-                };
-            }
+            const newHistory = state.history.filter(
+                (blog) => blog._id !== action.payload._id
+            );
             return {
                 ...state,
-                history: [...state.history, selectedBlog]
+                history: [...newHistory, action.payload]
             };
         default:
             return state;

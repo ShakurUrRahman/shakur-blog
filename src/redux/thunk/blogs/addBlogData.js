@@ -13,7 +13,7 @@ const addBlogData = (blog, navigate) => {
 
         if (data.acknowledged) {
             dispatch(addBlog({
-                _id: data.insertedId,
+                _id: data?.insertedId,
                 ...blog
             }))
             navigate("/dashboard")
