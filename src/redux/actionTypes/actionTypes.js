@@ -10,3 +10,7 @@ export const TOGGLE_TAGS = "TOGGLE_TAGS";
 export const SEND_FILTER = "SEND_FILTER";
 export const LATEST_UPLOAD = "LATEST_UPLOAD";
 export const OLDEST_UPLOAD = "OLDEST_UPLOAD";
+
+// for toggle navbar
+
+export const TOGGLE_NAVBAR = "TOGGLE_NAVBAR";

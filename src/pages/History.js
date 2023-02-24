@@ -29,7 +29,7 @@ const History = () => {
                         <td className="px-6 py-4 bg-lime-200">
                             {blog?.blog?.title}
                         </td>
-                        <td className="px-6 py-4 uppercase  bg-lime-200">
+                        <td className="px-6 py-4 uppercase  bg-lime-200 text-center">
                             {blog?.blog?.tag.map(t => <p>{t}</p>)}
                         </td>
                     </tr>)}

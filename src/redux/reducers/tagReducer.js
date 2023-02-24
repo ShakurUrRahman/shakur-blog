@@ -1,9 +1,10 @@
-import { LATEST_UPLOAD, OLDEST_UPLOAD, TOGGLE_TAGS } from "../actionTypes/actionTypes";
+import { LATEST_UPLOAD, OLDEST_UPLOAD, TOGGLE_NAVBAR, TOGGLE_TAGS } from "../actionTypes/actionTypes";
 
 export const initialState = {
     tags: [],
     latest: true,
-    oldest: false
+    oldest: false,
+    expandNavbar: false
 };
 
 export const tagReducer = (state = initialState, action) => {
@@ -31,7 +32,12 @@ export const tagReducer = (state = initialState, action) => {
                     ...state,
                     tags: [...state.tags, action.payload]
                 }
-            }
+            };
+        case TOGGLE_NAVBAR:
+            return {
+                ...state,
+                expandNavbar: !state.expandNavbar,
+            };
         default:
             return state;
     }

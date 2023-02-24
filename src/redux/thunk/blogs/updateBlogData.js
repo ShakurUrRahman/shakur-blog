@@ -4,7 +4,7 @@ import { updatedBlog } from "../../actionCreators/blogActions";
 const updateBlogData = (id, blog, navigate) => {
 
     return async (dispatch, getState) => {
-        const res = await fetch(`http://localhost:5000/updateblog/${id}`, {
+        const res = await fetch(`https://shakur-blog-server.vercel.app/updateblog/${id}`, {
             method: "PUT",
             body: JSON.stringify(blog),
             headers: {
