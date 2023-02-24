@@ -13,7 +13,7 @@ const BlogCard = ({ blog }) => {
 
     const currentDate = (blog?.blog?.date);
     const newDate = moment(currentDate).format('MMMM Do YYYY, h:mm:ss a')
-    console.log(currentDate);
+    // console.log(currentDate);
 
     const activeClass = "bg-gradient-to-r from-purple-500 to-pink-500 text-white";
     return (
