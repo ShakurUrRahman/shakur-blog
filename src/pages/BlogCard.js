@@ -1,3 +1,4 @@
+import moment from "moment/moment";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
@@ -8,7 +9,11 @@ const BlogCard = ({ blog }) => {
     const dispatch = useDispatch();
     const { pathname } = useLocation();
     const tags = useSelector((state) => state.filters.tags);
-    console.log(tags);
+    // console.log(tags);
+
+    const currentDate = (blog?.blog?.date);
+    const newDate = moment(currentDate).format('MMMM Do YYYY, h:mm:ss a')
+    console.log(currentDate);
 
     const activeClass = "bg-gradient-to-r from-purple-500 to-pink-500 text-white";
     return (
@@ -17,7 +22,7 @@ const BlogCard = ({ blog }) => {
             <div className="flex flex-col justify-between lg:p-4 p-2 leading-normal mx-auto">
                 <div className="flex justify-between items-start">
                     <h5 className="mb-2 lg:text-2xl text-xl font-bold tracking-tight">{blog?.blog?.title}</h5>
-                    <p className="text-sm underline hidden">Posted on: <span className="italic">{blog?.blog?.date}</span></p>
+                    <p className="text-sm underline">Posted on: <span className="italic font-medium">{newDate}</span></p>
                 </div>
                 <p className="mb-3 lg:text-base text-xs">{blog?.blog?.body?.slice(0, 200)}...</p>
                 <div className="flex lg:gap-44 gap-5 items-center">
