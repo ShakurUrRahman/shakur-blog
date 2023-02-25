@@ -18,7 +18,7 @@ const Navbar = () => {
 
     return (
         <nav className='h-24 bg-slate-300 mt-14 max-w-5xl rounded-full mx-auto px-5 border rounded-t-2xl border-x-8 navbar' id={expandNavbar ? "open" : "close"}>
-            <ul className='h-full lg:mx-12 flex justify-between items-center font-bold text-xl text-indigo-900'>
+            <ul className='h-full lg:mx-12 flex justify-between items-center font-bold lg:text-xl text-indigo-900'>
                 <div className="toggleButton">
                     <button
                         onClick={() => dispatch(toggleNavbar())}
@@ -45,10 +45,10 @@ const Navbar = () => {
                                 </svg>
                             </Link>
                             <ul>
-                                <li>
+                                <li className="lg:text-xl text-sm">
                                     <Link to="/dashboard">Blog List</Link>
                                 </li>
-                                <li>
+                                <li className="lg:text-xl text-sm">
                                     <Link to="/dashboard/addblog">Add Blog</Link>
                                 </li>
                             </ul>
