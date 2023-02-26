@@ -64,8 +64,9 @@ const Home = () => {
             </div>
             <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 mx-auto'>
                 {
-                    !blogs.length ? <Loading />
-                        : content}
+                    !blogs.length ?
+                        <Loading /> : content
+                }
             </div>
             <div className='flex items-center gap-2 mx-auto text-lg font-extrabold'>
                 <p>Your selected tag(s):</p>

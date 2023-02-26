@@ -1,9 +1,8 @@
-import { ADD_CONTENT, ADD_TO_HISTORY, DELETE_CONTENT, GET_CONTENT, LOADING, UPDATE_CONTENT } from "../actionTypes/actionTypes";
+import { ADD_CONTENT, ADD_TO_HISTORY, BLOG_PER_PAGE, CURRENT_PAGE, DELETE_CONTENT, GET_CONTENT, LOADING, UPDATE_CONTENT } from "../actionTypes/actionTypes";
 
 const initialState = {
     blogs: [],
-    history: [],
-    isLoading: false
+    history: []
 };
 
 export const blogReducer = (state = initialState, action) => {
@@ -36,13 +35,6 @@ export const blogReducer = (state = initialState, action) => {
                 ...state,
                 history: [...newHistory, action.payload]
             };
-        case LOADING:
-            {
-                return {
-                    ...state,
-                    isLoading: action.payload
-                }
-            }
         default:
             return state;
     }

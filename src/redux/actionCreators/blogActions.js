@@ -1,4 +1,4 @@
-import { ADD_CONTENT, ADD_TO_HISTORY, DELETE_CONTENT, GET_CONTENT, LOADING, UPDATE_CONTENT } from "../actionTypes/actionTypes"
+import { ADD_CONTENT, ADD_TO_HISTORY, CURRENT_PAGE, DELETE_CONTENT, GET_CONTENT, LOADING, UPDATE_CONTENT } from "../actionTypes/actionTypes"
 
 export const loadBlog = (data) => {
     return {
@@ -32,10 +32,4 @@ export const addToHistory = (blog) => {
         type: ADD_TO_HISTORY,
         payload: blog
     };
-}
-
-export const isLoadingAction = () => {
-    return {
-        type: LOADING,
-    }
 }

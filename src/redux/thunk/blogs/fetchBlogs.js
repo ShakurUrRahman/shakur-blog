@@ -7,8 +7,6 @@ const loadBlogData = () => {
         // console.log(data, "fetch");
         if (data.length) {
             dispatch(loadBlog(data))
-        } else {
-            dispatch(isLoadingAction())
         }
     };
 }

@@ -14,7 +14,3 @@ export const OLDEST_UPLOAD = "OLDEST_UPLOAD";
 // for toggle navbar
 
 export const TOGGLE_NAVBAR = "TOGGLE_NAVBAR";
-
-// for loading
-
-export const LOADING = "LOADING";
