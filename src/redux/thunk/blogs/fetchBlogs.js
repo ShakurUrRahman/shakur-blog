@@ -1,4 +1,4 @@
-import { loadBlog } from "../../actionCreators/blogActions";
+import { isLoadingAction, loadBlog } from "../../actionCreators/blogActions";
 
 const loadBlogData = () => {
     return async (dispatch, getState) => {
@@ -7,6 +7,8 @@ const loadBlogData = () => {
         // console.log(data, "fetch");
         if (data.length) {
             dispatch(loadBlog(data))
+        } else {
+            dispatch(isLoadingAction())
         }
     };
 }

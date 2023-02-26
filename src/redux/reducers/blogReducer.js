@@ -1,13 +1,12 @@
-import { ADD_CONTENT, ADD_TO_HISTORY, DELETE_CONTENT, GET_CONTENT, UPDATE_CONTENT } from "../actionTypes/actionTypes";
+import { ADD_CONTENT, ADD_TO_HISTORY, DELETE_CONTENT, GET_CONTENT, LOADING, UPDATE_CONTENT } from "../actionTypes/actionTypes";
 
 const initialState = {
     blogs: [],
-    history: []
+    history: [],
+    isLoading: false
 };
 
 export const blogReducer = (state = initialState, action) => {
-    // console.log(state);
-    // const selectedBlog = state.blogs.find((blog) => blog._id === action.payload._id);
     switch (action.type) {
         case GET_CONTENT:
             return {
@@ -37,6 +36,13 @@ export const blogReducer = (state = initialState, action) => {
                 ...state,
                 history: [...newHistory, action.payload]
             };
+        case LOADING:
+            {
+                return {
+                    ...state,
+                    isLoading: action.payload
+                }
+            }
         default:
             return state;
     }

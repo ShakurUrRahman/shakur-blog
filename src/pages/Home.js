@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { isLoading } from '../redux/actionCreators/blogActions';
 import { toggleLatest, toggleOldest, toggleTags } from '../redux/actionCreators/tagAction';
 import loadBlogData from '../redux/thunk/blogs/fetchBlogs';
 import BlogCard from './BlogCard'
+import Loading from './Loading';
 
 const Home = () => {
     const blogs = useSelector((state) => state?.blogs?.blogs);
@@ -47,6 +49,7 @@ const Home = () => {
         }
     }
 
+
     const activeClass = "bg-green-300 font-bold text-black text-md"
 
     return (
@@ -60,7 +63,9 @@ const Home = () => {
                 </button>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 mx-auto'>
-                {content}
+                {
+                    !blogs.length ? <Loading />
+                        : content}
             </div>
             <div className='flex items-center gap-2 mx-auto text-lg font-extrabold'>
                 <p>Your selected tag(s):</p>
