@@ -29,7 +29,7 @@ const BlogCard = ({ blog }) => {
                     {!pathname.includes("history") && (
                         <Link to={`/blogdetails/${blog?._id}`}> <button
                             onClick={() => dispatch(addToHistory(blog))}
-                            className='text-gray-900 font-medium border-2 bg-green-300 hover:bg-green-500  rounded-xl border-black border-b-8 text-md hover:font-bold hover:rounded-3xl lg:px-5 lg:py-2.5 py-2 text-center mr-2 mb-2 lg:w-52 w-24'
+                            className='text-gray-900 font-medium border-2 bg-green-300 hover:bg-green-500  rounded-xl border-black border-b-8 text-md hover:font-bold hover:rounded-3xl lg:px-5 lg:py-2.5 py-2 text-center mr-2 mb-2 lg:w-52 w-24 transition-all'
                         >Read Full Blog
                         </button></Link>
                     )}
