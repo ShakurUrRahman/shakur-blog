@@ -17,7 +17,7 @@ const Navbar = () => {
     }, [location]);
 
     return (
-        <nav className='h-24 bg-slate-300 mt-14 max-w-5xl rounded-full mx-auto px-5 border rounded-t-2xl border-x-8 navbar' id={expandNavbar ? "open" : "close"}>
+        <nav className='h-24 bg-white mt-14 max-w-5xl rounded-full mx-auto px-5 border rounded-t-2xl border-x-8 navbar' id={expandNavbar ? "open" : "close"}>
             <ul className='h-full lg:mx-12 flex justify-between items-center font-bold lg:text-xl text-indigo-900'>
                 <div className="toggleButton">
                     <button
